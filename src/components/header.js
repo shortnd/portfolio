@@ -2,32 +2,22 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header className="bg-gray-900 text-white sticky z-50">
+    <button id="skip" className="no-underline absolute shadow-lg rounded text-gold bg-rouge fixed px-2 py-4" tabIndex="0">SKIP TO CONTENT</button>
+    <div className="bg-rouge h-1" />
+    <section className="container h-full flex item-center justify-between leading-tight sm:leading-loose mx-auto px-3 sm:px-12">
+      <h1 className="font-heading text-4xl text-gold tracking-wide font-marker">{siteTitle}</h1>
+      <ul>
+        <li>
+          <a href="">
+            <FontAwesomeIcon icon="coffee" />
+          </a>
+        </li>
+      </ul>
+    </section>
   </header>
 )
 
