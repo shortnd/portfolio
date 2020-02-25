@@ -1,25 +1,24 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { fab } from '@fortawesome/free-solid-svg-icons';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
-// library.add(fab, faCoffee);
+import '../utils/fontawesome';
 
 import Header from "./header"
 import '../css/global.css';
 import "./layout.css"
+import { Hero } from "./Hero";
+import { Footer } from './Footer';
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    const wrapper = document.getElementById('gatsby-focus-wrapper')
+    wrapper.style.minHeight = '100vh'
+    wrapper.style.display = 'flex';
+    wrapper.style.flexDirection = 'column';
+    return () => {
+    };
+  }, []);
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -31,23 +30,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div>
+    <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </div>
+      <Hero />
+      <main id="main" className="mt-16 md:w-4/5 container mx-auto text-gray-900 sm:w-full px-2 flex-1">
+        {children}
+      </main>
+      <Footer />
+    </>
   )
 }
 
