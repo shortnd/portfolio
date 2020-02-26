@@ -22,7 +22,7 @@ const skills = [
   'Bash'
 ];
 
-const smallScreenSkills = skills;
+const smallScreenSkills = [...skills];
 const smallScreenSkillsHalf = Math.ceil(skills.length / 2);
 const otherSmallSkills = smallScreenSkills.splice(0, smallScreenSkillsHalf);
 
