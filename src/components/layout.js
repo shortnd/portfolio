@@ -10,6 +10,7 @@ import { Hero } from "./Hero";
 import { Footer } from './Footer';
 
 const Layout = ({ children }) => {
+
   useEffect(() => {
     const wrapper = document.getElementById('gatsby-focus-wrapper')
     wrapper.style.minHeight = '100vh'

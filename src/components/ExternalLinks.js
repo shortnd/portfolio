@@ -13,7 +13,7 @@ ExternalLinks.propTypes = {
     classes: PropTypes.string.isRequired,
     target: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
-    brand: PropTypes.string
+    brand: PropTypes.bool
   }).isRequired
 }
 
@@ -22,7 +22,7 @@ ExternalLinks.defaultProps = {
     classes: ``,
     target: ``,
     icon: ``,
-    brand: null
+    brand: false
   }
 }
 
